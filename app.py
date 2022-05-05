@@ -15,16 +15,26 @@ mysql = MySQL(app, cursorclass=pymysql.cursors.DictCursor)
 def home():
     user_response = ''
     if request.method == 'POST':
+        user_response = request.form['Word']
         conn = mysql.get_db()
         cur = conn.cursor()
-        cur.execute('select meaning from word where word =%s', ('flask'))
+        cur.execute('select meaning from word where word =%s', (user_response))
         rv = cur.fetchall()
-        user_response = request.form['Word']
+        if(len(rv) > 0):
+            user_response = rv[0]['meaning']
+        else:
+            user_response = 'word cannot ne found in this dictionary. Please try another word'
     return render_template('home.html', user_response = user_response )
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    conn = mysql.get_db()
+    cur = conn.cursor()
+    cur.execute('select * from word')
+    rv = cur.fetchall()
+    for item in rv:
+        print(item)
+    return render_template('dashboard.html', words = [])
 
 
 if __name__ == "__main__":

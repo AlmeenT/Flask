@@ -20,7 +20,7 @@ html {
       padding: 50px, 50px, 0px, 50px;
   }
 
-
+/* home page */
   img {
       width: 100%;
       height: 400px;
@@ -61,6 +61,37 @@ html {
       resize: none;
       height: 200px;
       background-color: #ffede5;
+  }
+
+  /* dashboard page */
+  .row > h2 {
+      margin-top: 50px;
+      margin-left: 280px;
+      color: #343252;
+      font-family: Georgia, serif;
+      font-weight: bold;
+  }
+
+  .sidenav {
+      padding-top: 60px;
+      height: 100%;
+      padding-bottom: 60px;
+      border-right: solid black 5px;
+      overflow-x: hidden;
+  }
+
+  .sidenav > a {
+      display: block;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      padding: 6px 8px 6px 16px;
+  }
+
+  .main{
+      overflow-y: scroll;
+      height: 60vh;
+      padding-left: 60px;
   }
 
   .footer {
