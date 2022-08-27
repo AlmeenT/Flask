@@ -1,5 +1,5 @@
 # A Dictionary App
-Learning flask frame!
+Learning flask framework!
 
 # Flask
 
